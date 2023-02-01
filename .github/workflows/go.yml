@@ -6,8 +6,10 @@ name: Go
 on:
   push:
     branches: [ "main" ]
+    paths: [ "services/ba-sing-se/**"]
   pull_request:
     branches: [ "main" ]
+    paths: [ "services/ba-sing-se/**"]
 
 jobs:
 
@@ -22,7 +24,9 @@ jobs:
         go-version: 1.19
 
     - name: Build
+      working-directory: ./services/ba-sing-se
       run: go build -v ./...
 
     - name: Test
+      working-directory: ./services/ba-sing-se
       run: go test -v ./...

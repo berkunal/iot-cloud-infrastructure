@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ba-sing-se
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ba-sing-se
+  template:
+    metadata:
+      labels:
+        app: ba-sing-se
+    spec:
+      containers:
+        - name: ba-sing-se
+          image: "ba-sing-se:${IMG_TAG}" # This is a placeholder for the image name
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              memory: 128Mi
+              cpu: 100m
+            limits:
+              memory: 512Mi
+              cpu: 250m
