@@ -8,6 +8,8 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  path:
+    - "services/ba-sing-se/**"
 
 jobs:
 
@@ -15,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
+    - name: Change directory
+      run: cd services/ba-sing-se
 
     - name: Set up Go
       uses: actions/setup-go@v3
