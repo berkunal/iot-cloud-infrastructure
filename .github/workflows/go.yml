@@ -6,10 +6,10 @@ name: Go
 on:
   push:
     branches: [ "main" ]
+    paths: [ "services/ba-sing-se/**"]
   pull_request:
     branches: [ "main" ]
-  path:
-    - "services/ba-sing-se/**"
+    paths: [ "services/ba-sing-se/**"]
 
 jobs:
 
