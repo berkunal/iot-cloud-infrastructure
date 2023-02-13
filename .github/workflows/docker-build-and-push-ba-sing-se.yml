@@ -3,6 +3,7 @@ name: Ba Sing Se Docker Build and Push
 on:
   push:
     branches: [ "main" ]
+    paths: [ "services/ba-sing-se/**"]
   workflow_dispatch:
 
 jobs:
