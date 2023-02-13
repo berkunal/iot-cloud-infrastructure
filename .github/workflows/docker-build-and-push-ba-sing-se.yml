@@ -23,8 +23,14 @@ jobs:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
+    - name: Set up Docker Image tag
+      run: echo "DOCKER_IMAGE_TAG=$(date +%s)" >> $GITHUB_ENV
+
     - name: Build the Docker image
-      run: docker build services/ba-sing-se --tag ${{ secrets.DOCKER_USER }}/ba-sing-se:$(date +%s)
+      run: docker build services/ba-sing-se --tag ${{ secrets.DOCKER_USER }}/ba-sing-se:${{ env.DOCKER_IMAGE_TAG }}
 
     - name: Push the Docker image
       run: docker push -a ${{ secrets.DOCKER_USER }}/ba-sing-se
+
+    - name: Tag the Docker image
+      run: docker tag ${{ secrets.DOCKER_USER }}/ba-sing-se:${{ env.DOCKER_IMAGE_TAG }} ${{ secrets.DOCKER_USER }}/ba-sing-se:latest
