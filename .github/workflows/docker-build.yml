@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build services/ba-sing-se --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build services/ba-sing-se --tag my-image-name:$(date +%s)
