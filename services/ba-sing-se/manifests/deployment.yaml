@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: ba-sing-se
-          image: "ba-sing-se:${IMG_TAG}" # This is a placeholder for the image name
+          image: "ba-sing-se:latest"
           ports:
             - containerPort: 3000
           resources:
