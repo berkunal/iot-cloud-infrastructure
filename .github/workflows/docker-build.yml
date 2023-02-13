@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Ba Sing Se Docker Build and Push
 
 on:
   push:
@@ -13,6 +13,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Check out the repo
+      uses: actions/checkout@v3
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
     - name: Build the Docker image
-      run: docker build services/ba-sing-se --tag my-image-name:$(date +%s)
+      run: docker build services/ba-sing-se --tag ba-sing-se:$(date +%s)
+
+    - name: Push the Docker image
+      run: docker push ${{ secrets.DOCKER_USER }}/iot-infrastructure
