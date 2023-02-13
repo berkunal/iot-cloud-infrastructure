@@ -24,7 +24,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build the Docker image
-      run: docker build services/ba-sing-se --tag ba-sing-se:$(date +%s)
+      run: docker build services/ba-sing-se --tag ${{ secrets.DOCKER_USER }}/ba-sing-se:$(date +%s)
 
     - name: Push the Docker image
-      run: docker push ${{ secrets.DOCKER_USER }}/iot-infrastructure
+      run: docker push ${{ secrets.DOCKER_USER }}/ba-sing-se
