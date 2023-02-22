@@ -1,4 +1,4 @@
-[![Ba Sing Se Docker Build and Push](https://github.com/berkunal/iot-cloud-infrastructure/actions/workflows/docker-build.yml/badge.svg)](https://github.com/berkunal/iot-cloud-infrastructure/actions/workflows/docker-build.yml)
+[![Ba Sing Se Docker Build and Push](https://github.com/berkunal/iot-cloud-infrastructure/actions/workflows/docker-build-and-push-ba-sing-se.yml/badge.svg)](https://github.com/berkunal/iot-cloud-infrastructure/actions/workflows/docker-build.yml)
 
 # IoT Cloud Infrastructure for Research in Yeditepe University
 
