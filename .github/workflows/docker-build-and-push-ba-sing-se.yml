@@ -38,13 +38,6 @@ jobs:
         context: services/ba-sing-se
         platforms: linux/arm64
         push: true
-        tags: ${{ secrets.DOCKER_USER }}/ba-sing-se:${{ env.DOCKER_IMAGE_TAG }}
-
-    # - name: Build the Docker image
-    #   run: docker build services/ba-sing-se --tag ${{ secrets.DOCKER_USER }}/ba-sing-se:${{ env.DOCKER_IMAGE_TAG }}
-
-    - name: Tag the Docker image
-      run: docker tag ${{ secrets.DOCKER_USER }}/ba-sing-se:${{ env.DOCKER_IMAGE_TAG }} ${{ secrets.DOCKER_USER }}/ba-sing-se:latest
-
-    - name: Push the Docker image
-      run: docker push -a ${{ secrets.DOCKER_USER }}/ba-sing-se
+        tags: |
+          ${{ secrets.DOCKER_USER }}/ba-sing-se:${{ env.DOCKER_IMAGE_TAG }}
+          ${{ secrets.DOCKER_USER }}/ba-sing-se:latest
